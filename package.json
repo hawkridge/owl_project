@@ -12,12 +12,15 @@
   "devDependencies": {
     "@uirouter/angularjs": "^1.0.15",
     "angular": "^1.6.9",
+    "angular-cookies": "^1.6.9",
     "angular-translate": "^2.17.0",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "express": "^4.16.2",
+    "jquery": "^3.3.1",
     "json-server": "^0.12.1",
+    "lodash": "^4.17.5",
     "restangular": "^1.6.1",
     "webpack": "^3.11.0"
   }
