@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = function (_path) {
     console.log('From development, _path', _path);
@@ -9,8 +10,13 @@ module.exports = function (_path) {
         devServer: {
             contentBase: path.join(_path, 'dist'),
             compress: true,
+            hot: true,
             port: 9000
-        }
+        },
+        // plugins: [
+        //     new webpack.NamedModulesPlugin(),
+        //     new webpack.HotModuleReplacementPlugin()
+        // ]
     };
 
     return config;
