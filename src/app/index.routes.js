@@ -5,8 +5,9 @@ function routeConfig($urlRouterProvider, $stateProvider) {
     $stateProvider
         .state('main', {
             url: '/home',
-            template: '<div>Little little owl</div>'
-        })
+            templateUrl: require('./pages/main/main.html'),
+            controller: 'mainController as main'
+        });
 
     $urlRouterProvider.otherwise('/');
 

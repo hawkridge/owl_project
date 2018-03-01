@@ -10,13 +10,8 @@ module.exports = function (_path) {
         devServer: {
             contentBase: path.join(_path, 'dist'),
             compress: true,
-            hot: true,
             port: 9000
-        },
-        // plugins: [
-        //     new webpack.NamedModulesPlugin(),
-        //     new webpack.HotModuleReplacementPlugin()
-        // ]
+        }
     };
 
     return config;
