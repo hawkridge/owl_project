@@ -4,8 +4,8 @@ function routeConfig($urlRouterProvider, $stateProvider) {
 
     $stateProvider
         .state('main', {
-            url: '/home',
-            templateUrl: require('./pages/main/main.html'),
+            url: '/',
+            templateUrl: './components/mainPage/mainPage.html',
             controller: 'mainController as main'
         });
 

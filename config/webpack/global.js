@@ -41,13 +41,19 @@ module.exports = function (_path) {
                     }
                 },
                 {
-                    test: /\.(html)$/,
-                    use: {
+                    test: /\.js$/,
+                    use: [{
+                        loader: 'angular1-templateurl-loader'
+                    }]
+                },
+                {
+                    test: /\.html$/,
+                    use: [{
                         loader: 'html-loader',
                         options: {
-                            attrs: []
+                            attrs: [':data-src']
                         }
-                    }
+                    }]
                 }
             ],
         },
