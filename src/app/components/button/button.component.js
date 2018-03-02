@@ -4,7 +4,7 @@ import buttonTpl from './button.html'
 
 const cdo = {
     bindings: {},
-    templateUrl: buttonTpl,
+    templateUrl: './button.html',
     controller: buttonController
 }
 
