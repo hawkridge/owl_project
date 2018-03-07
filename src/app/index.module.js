@@ -1,14 +1,22 @@
 'use strict';
-
-import config from './index.config'
 import run from './index.run'
+import config from './index.config'
+
+import mainPage from './pages/main/main.module'
+import loginPage from './pages/login/login.module'
 import routes from './index.routes'
 
-const app = angular.module('main.module', []);
 
-app
+const indexModule = angular.module('owl-module',
+    [
+        'ui.router',
+        mainPage.name,
+        loginPage.name,
+        routes.name
+    ]);
+
+indexModule
     .config(config)
-    .config(routes)
     .run(run);
 
-export default app;
+export default indexModule;

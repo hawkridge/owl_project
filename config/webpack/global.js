@@ -1,11 +1,11 @@
-const path = require('path');
+const webpack = require('webpack'),
+      path = require('path'),
+      htmlWebpackPlugin = require('html-webpack-plugin'),
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
+      CleanWebpackPlugin = require('clean-webpack-plugin');
 
-let NODE_ENV = process.env.NODE_ENV || 'production';
 
-const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// let NODE_ENV = process.env.NODE_ENV || 'production';
 
 
 module.exports = function (_path) {
@@ -51,6 +51,16 @@ module.exports = function (_path) {
                         options: {
                             attrs: [':data-src']
                         }
+                    }]
+                },
+                {
+                    test: /\.sass$/,
+                    use: [{
+                        loader: 'style-loader'
+                    },{
+                        loader: 'css-loader'
+                    },{
+                        loader: 'sass-loader'
                     }]
                 }
             ],
