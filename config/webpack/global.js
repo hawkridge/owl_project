@@ -1,18 +1,14 @@
 const path = require('path');
 
-let NODE_ENV = process.env.NODE_ENV || 'production',
-    BUILD_VER = process.env.npm_config_BUILD_VER;
+let NODE_ENV = process.env.NODE_ENV || 'production';
 
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-console.log('From global, NODE_ENV', NODE_ENV);
-console.log('From global, BUILD_VER', BUILD_VER);
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 module.exports = function (_path) {
-    console.log('From global, _path', _path);
 
     let config = {
 
@@ -36,9 +32,11 @@ module.exports = function (_path) {
                 {
                     test: /\.js$/,
                     exclude: /(node_modules)/,
-                    use: {
+                    use: [{
+                        loader: 'ng-annotate-loader'
+                    },{
                         loader: 'babel-loader'
-                    }
+                    }]
                 },
                 {
                     test: /\.js$/,
@@ -60,6 +58,9 @@ module.exports = function (_path) {
 
         // plugins
         plugins: [
+            new CleanWebpackPlugin(['dist'], {
+                root: _path
+            }),
             new htmlWebpackPlugin({
                 filename: 'index.html',
                 template: path.join(_path, 'src', 'index.html')

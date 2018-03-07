@@ -1,11 +1,11 @@
 'use strict';
 
-function run($rootScope)
+function run($rootScope, $location, $filter)
 
 {
     'ngInject';
 
-    console.log('Trigger RUN');
+    console.log('Invoke RUN', $rootScope);
 }
 
 export default run;

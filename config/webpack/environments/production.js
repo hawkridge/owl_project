@@ -1,6 +1,3 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
-
 module.exports = function (_path) {
     console.log('From production, _path', _path);
 
@@ -8,14 +5,10 @@ module.exports = function (_path) {
         context: _path,
         devtool: 'cheap-source-map',
         output: {
-            filename: '[name].[chunkhash].js'
+            filename: '[name].[chunkhash].js',
+            publicPath: './'
         },
-        plugins: [
-            new CleanWebpackPlugin(['dist'], {
-                root: _path
-            }),
-            // new UglifyjsWebpackPlugin()
-        ]
+        plugins: []
     };
 
     return config;

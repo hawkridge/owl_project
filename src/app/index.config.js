@@ -4,7 +4,7 @@ function config()
 
 {
     'ngInject';
-    console.log('Trigger Config');
+    console.log('Invoke Config');
 }
 
 export default config;

@@ -1,17 +1,8 @@
-'use-strict';
+'use strict';
 
-function routeConfig($urlRouterProvider, $stateProvider) {
-
-    $stateProvider
-        .state('main', {
-            url: '/',
-            templateUrl: './components/mainPage/mainPage.html',
-            controller: 'mainController as main'
-        });
-
-    $urlRouterProvider.otherwise('/');
+function routeConfig() {
+    console.log('Invoke Route Config');
 
 }
 
-export default angular.module('index.routes', [])
-    .config(routeConfig)
+export default routeConfig

@@ -2,17 +2,13 @@
 
 import config from './index.config'
 import run from './index.run'
+import routes from './index.routes'
 
-const app = angular.module('owl-module',
-    [
-        'ui.router',
-        require('./components/mainPage/mainPage.module').default.name,
-        require('./index.components').default.name,
-        require("./index.routes").default.name
-    ]);
+const app = angular.module('main.module', []);
 
 app
     .config(config)
+    .config(routes)
     .run(run);
 
 export default app;

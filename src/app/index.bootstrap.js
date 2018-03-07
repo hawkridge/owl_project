@@ -4,7 +4,7 @@ import './index.module'
 
 
 angular.element(document).ready(function () {
-    angular.bootstrap(document, ['owl-module'], {
+    angular.bootstrap(document, ['main.module'], {
         strictDi: false
     })
 });
