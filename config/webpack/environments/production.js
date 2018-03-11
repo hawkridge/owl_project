@@ -5,8 +5,7 @@ module.exports = function (_path) {
         output: {
             filename: '[name].[chunkhash].js',
             publicPath: './'
-        },
-        plugins: []
+        }
     };
 
     return config;

@@ -1,11 +1,15 @@
+// plugins
 const webpack = require('webpack'),
       path = require('path'),
       htmlWebpackPlugin = require('html-webpack-plugin'),
       ExtractTextPlugin = require('extract-text-webpack-plugin'),
       CleanWebpackPlugin = require('clean-webpack-plugin');
 
-
-// let NODE_ENV = process.env.NODE_ENV || 'production';
+// create feature for replacing separate css files
+const extractSass = new ExtractTextPlugin({
+    filename: '[name][contenthash].css',
+    disable: process.env.NODE_ENV === 'development'
+});
 
 
 module.exports = function (_path) {
@@ -55,12 +59,32 @@ module.exports = function (_path) {
                 },
                 {
                     test: /\.sass$/,
+                    use: extractSass.extract({
+                        use: [{
+                            loader: 'css-loader'
+                        },{
+                            loader: 'sass-loader'
+                        }],
+                        fallback: 'style-loader'
+                    })
+                },
+                {
+                    test: /\.(png|svg|jpg|gif)$/,
                     use: [{
-                        loader: 'style-loader'
-                    },{
-                        loader: 'css-loader'
-                    },{
-                        loader: 'sass-loader'
+                        loader: 'url-loader',
+                        options: {
+                            name: '[hash].[ext]'
+                        }
+                    }]
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    use: [{
+                        loader: 'file-loader',
+                        options: {
+                            name: '[hash].[ext]',
+                            outputPath: './fonts/'
+                        }
                     }]
                 }
             ],
@@ -74,7 +98,8 @@ module.exports = function (_path) {
             new htmlWebpackPlugin({
                 filename: 'index.html',
                 template: path.join(_path, 'src', 'index.html')
-            })
+            }),
+            extractSass
         ]
     };
 
