@@ -6,6 +6,9 @@ import mainPage from './pages/main/main.module'
 import loginPage from './pages/login/login.module'
 import routes from './index.routes'
 import components from './index.components'
+import services from './core/core.modules'
+
+console.log('frefre', services);
 
 
 const indexModule = angular.module('owl-module',
@@ -14,7 +17,8 @@ const indexModule = angular.module('owl-module',
         components.name,
         mainPage.name,
         loginPage.name,
-        routes.name
+        routes.name,
+        services.name
     ]);
 
 indexModule

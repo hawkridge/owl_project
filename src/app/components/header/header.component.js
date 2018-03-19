@@ -10,8 +10,6 @@ const cdo = {
 function headerController($scope) {
     'ngInject'
     console.log('INIT HEADER CONTROLLER');
-
-    this.name = 'Sorax'
 }
 
 export default cdo;

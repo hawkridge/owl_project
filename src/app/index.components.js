@@ -1,6 +1,8 @@
 'use strict';
+import headerComponent from './components/header/header.module'
+
 
 export default angular.module('index.components', [
-    require('./components/header/header.module').default.name
+    headerComponent.name
 
 ])

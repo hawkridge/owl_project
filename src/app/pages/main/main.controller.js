@@ -1,5 +1,7 @@
-function MainController($scope) {
+function MainController($scope, Logger) {
     'ngInject'
+
+    Logger.l();
 
 }
 
