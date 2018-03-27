@@ -3,7 +3,7 @@ function MainController($scope) {
 
     this.$onInit = function () {
 
-
+        console.log('1', 123);
     }
 
 }
