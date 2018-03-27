@@ -13,10 +13,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             url: '/login',
             templateUrl: './pages/login/login.html',
             controller: 'LoginController as login'
-        })
-        .state('header', {
-            url: '/head',
-            template: '<main-header></main-header>'
         });
 
 
